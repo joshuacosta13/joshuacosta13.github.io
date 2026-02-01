@@ -16,9 +16,11 @@
     <title>Product Detail - Q-RATER</title>
 </head>
 <body>
-    <!-- Header is loaded using JavaScript so I can update it globally -->
-    <div id="header"></div>
-    <main>
+    <div id="page-container">
+        <div id="content-wrap">
+        <!-- Header is loaded using JavaScript so I can update it globally -->
+        <div id="header"></div>
+        <main>
         <!-- product image background  -->
         <div class="product-header">
             <img class="product-header-bg" id="product-image" src="" alt="Product Image">
@@ -36,10 +38,14 @@
             <p id="product-seller"></p>
             <h2>Average Rating</h2>
             <p id="product-rating"></p>
+
+            <div id="product-form"></div>
         </div>
-    </main>
+            </main>
+        </div>
     <!-- Footer is loaded using JavaScript so I can update it globally -->
     <div id="footer"></div>
+    </div>
     <script src="components.js"></script>
 </body>
 </html>
