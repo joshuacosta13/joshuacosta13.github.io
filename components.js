@@ -59,6 +59,30 @@ const products = {
         ratingCount: 25,
         seller: "ICT12a - Gallantry (Group 1)",
         img: "assets/churrolicious.jpg"
+    }, 
+    "ice-candy": {
+      name: "Ice Candy", 
+      description: "Cold and sweet for a hot, sunny day! ", 
+      averageRating: `Loading...`, 
+      ratingCount: 10,
+      seller: "ABM12a - Benevolence (Group 1)", 
+      img: " assets/ice-candy.png"
+    }, 
+    "banana-chips": {
+      name: "Banana Chips", 
+      description: "Bite-sized crunch for a quick snack! ", 
+      averageRating: `Loading...`, 
+      ratingCount: 10,
+      seller: "ABM12b - Solidarity (Group 2)", 
+      img: " assets/Healthy-Baked-Banana-Chips.jpg"
+    }, 
+    "cookies": {
+      name: "Cookies", 
+      description: "Baked with the taste of home and warmth.", 
+      averageRating: `Loading...`, 
+      ratingCount: 10,
+      seller: "ABM12c - Credibility (Group 2)", 
+      img: "assets/cookies.png"
     }
 };
 // Setup Google Sheets CSV URLS for each product form
@@ -70,7 +94,7 @@ const productSheetURLs = {
 // set up product forms
 const productForms = {
     "banana-cue": "https://docs.google.com/forms/d/e/1FAIpQLSctlUR3m5yNUd5eUYk7GmTEercr1lqevTKhcDVDRMaiLq92AA/viewform?embedded=true",
-    "gulaman": "https://docs.google.com/forms/d/e/1FAIpQLSfasFEQ-vFZ-jv4FyRbUKL6q3LanEJIFwTlk4Q7T68RJ2oatA/viewform?embedded=true",
+    "gulaman": "https://docs.google.com/forms/d/e/1FAIpQLSdPPJggdY7cTkm19GE72BolEtkm2t3LFmSex0CVpiThG_ukdg/viewform?embedded=true",
     "churrolicious": "https://docs.google.com/forms/d/e/1FAIpQLSdlyguvB3lDN_Y1GG_05OulB4FxpgynV_Hsn7Xp1aiCUCz6QA/viewform?embedded=true"
 }
 
