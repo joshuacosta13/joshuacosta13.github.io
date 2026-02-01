@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- connects this page to the stylesheet in order to load the CSS-->
+    <link rel="stylesheet" href="styles.css">
+    <!-- connect the webpage to google's font apis so we can use the fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- adds the font "Outfit" to apply to headers and emphasized text -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <!-- adds the font "Outfit" to apply to subtitles and smaller text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Project Q-RATER</title>
+</head>
+<body>
+    <div id="page-container">
+        <div id="content-wrap">
+            <!-- Header is loaded using JavaScript so I can update it globally -->
+            <div id="header"></div>
+             <main>
+        <section class="intro">
+            <div class="bg-image"></div>   
+            <div class="bg-text">
+                <h2>Welcome!</h2>
+                <img src="assets/qr-code.gif" alt="QR Code" class="qr-code">
+                <p>Scan a QR code with your phone to rate a product or register your product to be added to the website!</p>
+                <div class="button-container">
+                    <button class="register-button" onclick="openModal()">Scan Product</button>
+                    <button class="register-button" onclick="location.href='https://forms.gle/NRt91HKXEYDWWbig6'">Register Product</button>
+                </div>
+                
+            </div>
+        </section>
+        <section class="products">
+            <div class="section-header">
+                <h2 class="section-header-h2">Featured Products</h2>
+                <p class="subtitle">Here are some of the popular products rated by our users:</p>
+            <div class="grid">
+                <div class="card" data-product="banana-cue">
+                    <img src="assets/bananacue.jpg" alt="Banana Cue"> <!-- Image -->
+                    <h2>Banana Cue</h2> <!-- Product Name -->
+                    <h3>by ABM 12a - Benevolence (Group 2)</h3> <!-- Seller -->
+                    <p class="rating">★★★★★ (4.5)</p> <!-- Average Rating -->
+                </div>
+                <div class="card" data-product="churrolicious">
+                    <img src="assets/churrolicious.jpg" alt="Churrolicious"> <!-- Image -->
+                    <h2>Churrolicious</h2> <!-- Product Name -->
+                    <h3>by ICT12a - Gallantry (Group 1)</h3> <!-- Seller -->
+                    <p class="rating">★★★★★ (4.7)</p> <!-- Average Rating -->
+             </div>
+                <div class="card" data-product="gulaman">
+                    <img src="assets/gulaman.png" alt="Gulaman"> <!-- Image -->
+                    <h2>Gulaman</h2> <!-- Product Name -->
+                    <h3>by ABM 12c - Credibility (Group 1)</h3> <!-- Seller -->
+                    <p class="rating">★★★★★ (5.0)</p> <!-- Average Rating -->
+                </div>
+                <div class="card" data-product="ice-candy">
+                    <img src="assets/ice-candy.png" alt="Ice Candy"> <!-- Image -->
+                    <h2>Ice Candy</h2> <!-- Product Name -->
+                    <h3>by ABM 12a - Benevolence (Group 1)</h3> <!-- Seller -->
+                    <p class="rating">★★★☆☆ (3.5)</p> <!-- Average Rating -->
+                </div>
+                <div class="card" data-product="banana-chips">
+                    <img src="assets/Healthy-Baked-Banana-Chips.jpg" alt="Banana Chips"> <!-- Image -->
+                    <h2>Banana Chips</h2> <!-- Product Name -->
+                    <h3>by ABM 12b - Solidarity (Group 2)</h3> <!-- Seller -->
+                    <p class="rating">★★★★☆ (4.2)</p> <!-- Average Rating -->
+                </div>
+                <div class="card" data-product="cookies">
+                    <img src="assets/cookies.png" alt="Cookies"> <!-- Image -->
+                    <h2>Cookies</h2> <!-- Product Name -->
+                    <h3>by ABM 12c - Credibility (Group 3)</h3> <!-- Seller -->
+                    <p class="rating">★★★★★ (4.8)</p> <!-- Average Rating -->
+                </div>
+            </div>
+        </section>
+             </main>
+        </div>
+        <!-- Footer is also loaded using JavaScript so I can update it globally -->
+    <div id="footer"></div>
+    </div>
+    <!-- create a custom pop-up modal -->
+    <div id="scanModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2> Instructions </h2>
+            <p> Please open your Camera app or a QR Code scanning app and point it at a valid QR code on the product to scan and rate it!</p>
+            <button class="modal-button" onclick="closeModal()">I Understand</button>
+        </div>
+    </div>
+
+    <script src="components.js"></script>
+</body>
