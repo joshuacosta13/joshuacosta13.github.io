@@ -174,9 +174,12 @@ function getStars(rating) {
 // Finally, update the rating display on the page
 async function updateAllRatings() {
   // Fetch all ratings in parallel for better performance
-  const ratingPromises = Object.entries(productSheetURLs).map(async ([productId, sheetURL]) => {
-    if (sheetURL && products[productId]) {
-      const ratingData = await fetchRatings(sheetURL);
+  const ratingPromises = Object.entries(productSheetURLs).map(([productId, sheetURL]) => {
+    if (!sheetURL || !products[productId]) {
+      return Promise.resolve();
+    }
+    
+    return fetchRatings(sheetURL).then(ratingData => {
       if (ratingData) {
         const averageStars = ratingData.average.toFixed(1);
         const starText = getStars(ratingData.average);
@@ -185,7 +188,7 @@ async function updateAllRatings() {
         products[productId].ratingStars = starText;
         products[productId].ratingCount = ratingData.count;
       }
-    }
+    });
   });
 
   // Wait for all ratings to be fetched
