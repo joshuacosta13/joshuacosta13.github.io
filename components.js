@@ -62,13 +62,14 @@ const products = {
 // Setup Google Sheets CSV URLS for each product form
 const productSheetURLs = {
   "banana-cue": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQu1X0oGEwr9u9MOo4MdlUjFSo8hhahPPr0Of0aU289X0B8STlmDjoDI0dk87i6Ru0A80qspWOmRicx/pub?output=csv"
+  "churrolicious": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbVnDUdc0MRhXKxmoKK09nY7ujxHTJEYUi10MzKsT1i3OoGR3-BVH0McSnOxyGolG9l-DePpnd2CfR/pub?output=csv"
 }
 
 // set up product forms
 const productForms = {
     "banana-cue": "https://docs.google.com/forms/d/e/1FAIpQLSctlUR3m5yNUd5eUYk7GmTEercr1lqevTKhcDVDRMaiLq92AA/viewform?embedded=true",
     "gulaman": "https://docs.google.com/forms/d/e/1FAIpQLSfasFEQ-vFZ-jv4FyRbUKL6q3LanEJIFwTlk4Q7T68RJ2oatA/viewform?embedded=true",
-    "churrolicious": ""
+    "churrolicious": "https://docs.google.com/forms/d/e/1FAIpQLSdlyguvB3lDN_Y1GG_05OulB4FxpgynV_Hsn7Xp1aiCUCz6QA/viewform?embedded=true"
 }
 
 
