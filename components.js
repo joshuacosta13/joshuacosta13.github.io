@@ -3,14 +3,16 @@ fetch('header.html') // tan awon niya if naa diay header.html file
   .then(response => response.text()) // if naa, then pasabot ana naay response, so i-convert niya ang response into text form
   .then(data => { 
     document.getElementById('header').innerHTML = data;
-  });
+  })
+  .catch(error => console.error('Error loading header:', error));
 
 // Loads the footer part of the website
 fetch('footer.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
-  });
+  })
+  .catch(error => console.error('Error loading footer:', error));
 
 // automatically wraps a card with an anchor tag if it has a data-link attribute
   document.querySelectorAll('.card[data-product]').forEach(card => {
@@ -171,22 +173,23 @@ function getStars(rating) {
 
 // Finally, update the rating display on the page
 async function updateAllRatings() {
-  for (let productId in productSheetURLs) { // loop through each productId in productSheetURLs
-    const sheetURL = productSheetURLs[productId]; // get the sheet URL for the product
-    
-    if (sheetURL && products[productId]) { // check if sheetURL exists and product exists in products object
-      const ratingData = await fetchRatings(sheetURL); // fetch ratings for the product
-
-      if (ratingData) { // if rating data is returned
-        const averageStars = ratingData.average.toFixed(1); // get average rating, the toFixed(1) limits to 1 decimal place, then why was the earlier toFixed(2) used? because that was just for logging, here we want to display it with 1 decimal place
+  // Fetch all ratings in parallel for better performance
+  const ratingPromises = Object.entries(productSheetURLs).map(async ([productId, sheetURL]) => {
+    if (sheetURL && products[productId]) {
+      const ratingData = await fetchRatings(sheetURL);
+      if (ratingData) {
+        const averageStars = ratingData.average.toFixed(1);
         const starText = getStars(ratingData.average);
-        products[productId].averageRating = `${averageStars} ${starText}`; // update the product's averageRating with stars, why not use ratingData.average directly? because we want to format it nicely with stars
+        products[productId].averageRating = `${averageStars} ${starText}`;
         products[productId].ratingValue = averageStars;
         products[productId].ratingStars = starText;
-        products[productId].ratingCount = ratingData.count; // store the count of ratings
-      } 
+        products[productId].ratingCount = ratingData.count;
+      }
     }
-  }
+  });
+
+  // Wait for all ratings to be fetched
+  await Promise.all(ratingPromises);
 
   // Update ratings on the homepage cards
   document.querySelectorAll('.card[data-product]').forEach(card => {
@@ -229,9 +232,7 @@ async function updateAllRatings() {
 }
 
 // Call the function to update all ratings on page load
-updateAllRatings();
-
-
+updateAllRatings().catch(error => console.error('Error updating ratings:', error));
 
 
 
@@ -244,12 +245,3 @@ updateAllRatings();
   function closeModal() {
     document.getElementById("scanModal").style.display = "none";
   }
-
-  // console testing fetching one product's ratings
-  fetchRatings(productSheetURLs["banana-cue"]).then(data => console.log(data));
-
-  // test AFTER updating all ratings
-  updateAllRatings().then(() => {
-    console.log("Updated all ratings:");
-    console.log(products);
-  });
