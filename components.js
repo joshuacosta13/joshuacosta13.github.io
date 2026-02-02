@@ -32,31 +32,31 @@ const products = {
         name: "Banana Cue",
         description: "Delicious caramelized banana skewers, a popular Filipino street food snack.",
         averageRating: `Loading...`,
-        ratingCount: 20,
-        seller: "ABM 12a - Benevolence (Group 2)",
+        ratingCount: 0,
+        seller: "12d - Group 2",
         img: "assets/bananacue.jpg"
     },
     "gulaman": {
         name: "Gulaman",
         description: "Refreshing jelly drink made from agar-agar, perfect for cooling down on a hot day.",
         averageRating: `Loading...`,
-        ratingCount: 15,
-        seller: "ABM 12a - Benevolence (Group 2)",
+        ratingCount: 5,
+        seller: "12a - Group 2",
         img: "assets/gulaman.png"
     },
     "graham-balls": {
         name: "Graham Balls",
         description: "Sweet and crunchy graham cracker balls filled with chocolate and condensed milk.",
         averageRating: `Loading...`,
-        ratingCount: 10,
-        seller: "ABM 12b - Solidarity (Group 3)",
+        ratingCount: 0,
+        seller: "12b - Group 3",
         img: "assets/graham-balls.jpg"
     },
     "churrolicious": {
         name: "Churrolicious",
         description: "Crispy and golden churros coated with sugar and dipped in chocolate sauce.",
         averageRating: `Loading...`,
-        ratingCount: 25,
+        ratingCount: 5,
         seller: "ICT12a - Gallantry (Group 1)",
         img: "assets/churrolicious.jpg"
     }, 
@@ -64,24 +64,24 @@ const products = {
       name: "Ice Candy", 
       description: "Cold and sweet for a hot, sunny day! ", 
       averageRating: `Loading...`, 
-      ratingCount: 10,
-      seller: "ABM12a - Benevolence (Group 1)", 
+      ratingCount: 0,
+      seller: "12a - Group 3", 
       img: " assets/ice-candy.png"
     }, 
     "banana-chips": {
       name: "Banana Chips", 
       description: "Bite-sized crunch for a quick snack! ", 
       averageRating: `Loading...`, 
-      ratingCount: 10,
-      seller: "ABM12b - Solidarity (Group 2)", 
+      ratingCount: 0,
+      seller: "12e - Group 2", 
       img: " assets/Healthy-Baked-Banana-Chips.jpg"
     }, 
     "cookies": {
       name: "Cookies", 
       description: "Baked with the taste of home and warmth.", 
       averageRating: `Loading...`, 
-      ratingCount: 10,
-      seller: "ABM12c - Credibility (Group 2)", 
+      ratingCount: 0,
+      seller: "12c - Group 3", 
       img: "assets/cookies.png"
     }
 };
