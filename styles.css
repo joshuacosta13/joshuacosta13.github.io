@@ -487,3 +487,51 @@ footer {
     flex: 1;
   }
 }
+
+/* QR Code Review Section */
+.qr-review-section {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+.qr-review-section h2 {
+  font-family: "Outfit", sans-serif;
+  color: #8a0029;
+  margin-bottom: 10px;
+}
+
+.qr-review-section p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qr-code-image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border: 3px solid #8a0029;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+@media (max-width: 480px) {
+  .qr-code-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .qr-review-section {
+    padding: 20px 15px;
+  }
+}

@@ -34,7 +34,8 @@ const products = {
         averageRating: `Loading...`,
         ratingCount: 0,
         seller: "12d - Group 2",
-        img: "assets/bananacue.jpg"
+        img: "assets/bananacue.jpg",
+        qrCode: "assets/qr-code-banana-cue.png"
     },
     "gulaman": {
         name: "Gulaman",
@@ -42,7 +43,8 @@ const products = {
         averageRating: `Loading...`,
         ratingCount: 5,
         seller: "12a - Group 2",
-        img: "assets/gulaman.png"
+        img: "assets/gulaman.png",
+        qrCode: "assets/qr-code-gulaman.png"
     },
     "graham-balls": {
         name: "Graham Balls",
@@ -50,7 +52,8 @@ const products = {
         averageRating: `Loading...`,
         ratingCount: 0,
         seller: "12b - Group 3",
-        img: "assets/graham-balls.jpg"
+        img: "assets/graham-balls.jpg",
+        qrCode: "assets/qr-code-graham-balls.png"
     },
     "churrolicious": {
         name: "Churrolicious",
@@ -58,7 +61,8 @@ const products = {
         averageRating: `Loading...`,
         ratingCount: 5,
         seller: "ICT12a - Gallantry (Group 1)",
-        img: "assets/churrolicious.jpg"
+        img: "assets/churrolicious.jpg",
+        qrCode: "assets/qr-code-churros.png"
     }, 
     "ice-candy": {
       name: "Ice Candy", 
@@ -66,7 +70,8 @@ const products = {
       averageRating: `Loading...`, 
       ratingCount: 0,
       seller: "12a - Group 3", 
-      img: " assets/ice-candy.png"
+      img: " assets/ice-candy.png",
+      qrCode: "assets/qr-code-ice-candy.png"
     }, 
     "banana-chips": {
       name: "Banana Chips", 
@@ -74,7 +79,8 @@ const products = {
       averageRating: `Loading...`, 
       ratingCount: 0,
       seller: "12e - Group 2", 
-      img: " assets/Healthy-Baked-Banana-Chips.jpg"
+      img: " assets/Healthy-Baked-Banana-Chips.jpg",
+      qrCode: "assets/qr-code-banana-chips.png"
     }, 
     "cookies": {
       name: "Cookies", 
@@ -82,7 +88,8 @@ const products = {
       averageRating: `Loading...`, 
       ratingCount: 0,
       seller: "12c - Group 3", 
-      img: "assets/cookies.png"
+      img: "assets/cookies.png",
+      qrCode: "assets/qr-code-cookies.png"
     }
 };
 // Setup Google Sheets CSV URLS for each product form
@@ -90,13 +97,6 @@ const productSheetURLs = {
   "banana-cue": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQu1X0oGEwr9u9MOo4MdlUjFSo8hhahPPr0Of0aU289X0B8STlmDjoDI0dk87i6Ru0A80qspWOmRicx/pub?output=csv",
   "gulaman": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXLxtV_6nU7Vx8B_A0t6kidvkLlzsIpFje2fFqmnDcIsMuzaOQ0P_qr-hyOvx6LVzO6BVGKM-DN-NO/pub?output=csv", 
   "churrolicious": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbVnDUdc0MRhXKxmoKK09nY7ujxHTJEYUi10MzKsT1i3OoGR3-BVH0McSnOxyGolG9l-DePpnd2CfR/pub?output=csv"
-}
-
-// set up product forms
-const productForms = {
-    "banana-cue": "https://docs.google.com/forms/d/e/1FAIpQLSctlUR3m5yNUd5eUYk7GmTEercr1lqevTKhcDVDRMaiLq92AA/viewform?embedded=true",
-    "gulaman": "https://docs.google.com/forms/d/e/1FAIpQLSdPPJggdY7cTkm19GE72BolEtkm2t3LFmSex0CVpiThG_ukdg/viewform?embedded=true",
-    "churrolicious": "https://docs.google.com/forms/d/e/1FAIpQLSdlyguvB3lDN_Y1GG_05OulB4FxpgynV_Hsn7Xp1aiCUCz6QA/viewform?embedded=true"
 }
 
 
@@ -120,14 +120,16 @@ if (product) {
   document.getElementById("product-rating").textContent = product.averageRating;
   // document.getElementById("product-count").textContent = product.ratingCount;
   document.getElementById("product-image").src = product.img;
-  const formContainer = document.getElementById("product-form");
-  if (formContainer) {
-    const formURL = productForms[productName];
-    if (formURL) {
-      formContainer.innerHTML = `<div class="form-embed"><iframe src=${formURL}>Loading…</iframe></div>`;
-     } else {
-      formContainer.innerHTML = `<p>Order form is not available for this product.</p>`;
-    }
+
+  // Load QR code dynamically
+  const qrCodeImg = document.getElementById("product-qr-code");
+  if (qrCodeImg && product.qrCode) {
+    qrCodeImg.src = product.qrCode;
+    qrCodeImg.alt = `QR Code to review ${product.name}`;
+  } else if (qrCodeImg) {
+    // Hide QR section if no QR code available
+    const qrSection = qrCodeImg.closest('.qr-review-section');
+    if (qrSection) qrSection.style.display = 'none';
   }
 
  // If no product parameter exists, load with an error message
