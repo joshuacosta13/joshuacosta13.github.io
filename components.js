@@ -61,8 +61,9 @@ const products = {
         averageRating: `Loading...`,
         ratingCount: 5,
         seller: "ICT12a - Gallantry (Group 1)",
-        img: "assets/churrolicious.jpg",
+        img: "assets/Churros.jpg",
         qrCode: "assets/qr-code-churros.png"
+        
     }, 
     "ice-candy": {
       name: "Ice Candy", 
